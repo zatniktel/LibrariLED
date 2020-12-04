@@ -11,12 +11,12 @@ import numpy as np
 
 class ColorPicker(QWidget):
 
-    def __init__(self):
+    def __init__(self, radius):
         super().__init__()
-        self.setFixedSize(200, 200)
+        self.setFixedSize(2*radius, 2*radius)
         self.qc_Color = QColor(0, 0, 0, 255)
 
-        self.radius = self.width()/2
+        self.radius = radius
 
         # self.showFullScreen()
 
@@ -53,7 +53,7 @@ class ColorPicker(QWidget):
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    cp_ColorPicker = ColorPicker()
+    cp_ColorPicker = ColorPicker(200)
     cp_ColorPicker.show()
     app.exec_()
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
