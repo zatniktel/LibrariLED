@@ -2,9 +2,9 @@
 
 # Press Maj+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-from PyQt5.QtWidgets import QApplication, QWidget, QMessageBox
-from PyQt5.QtGui import QPainter, QColor, QMouseEvent
-from PyQt5.QtCore import Qt
+from PySide2.QtWidgets import QApplication, QWidget, QMessageBox
+from PySide2.QtGui import QPainter, QColor, QMouseEvent
+from PySide2.QtCore import Qt
 import sys
 import numpy as np
 
