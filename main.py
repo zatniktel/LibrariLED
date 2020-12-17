@@ -2,14 +2,14 @@
 
 # Press Maj+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-from PySide6.QtWidgets import QApplication, QWidget, QMessageBox
-from PySide6.QtGui import QPainter, QColor, QMouseEvent
-from PySide6.QtCore import Qt
+from PySide2.QtWidgets import QApplication, QWidget, QMessageBox, QLabel
+from PySide2.QtGui import QPainter, QColor, QMouseEvent, QPixmap, QImage
+from PySide2.QtCore import Qt
 import sys
 import numpy as np
 
 
-class ColorPicker(QWidget):
+class ColorPicker(QLabel):
 
     def __init__(self, radius):
         super().__init__()
@@ -18,11 +18,10 @@ class ColorPicker(QWidget):
 
         self.radius = radius
 
-        # self.showFullScreen()
+        self.qpm_Image = QPixmap()
 
-    def paintEvent(self, ev):
-        super().paintEvent(ev)
-        qp_Painter = QPainter(self)
+        #Create the image
+        qi_image = QImage(self.width(), self.height(), QImage.Format_RGB32)
         for i in range(self.width()):
             for j in range(self.height()):
                 color = QColor(0, 0, 0, 255)
@@ -31,8 +30,12 @@ class ColorPicker(QWidget):
                 v = 1.0
                 if s < 1.0:
                     color.setHsvF(h, s, v, 1.0)
-                qp_Painter.setPen(color)
-                qp_Painter.drawPoint(i, j)
+                qi_image.setPixelColor(i, j, color)
+
+        self.qpm_Image.convertFromImage(qi_image)
+        self.setPixmap(self.qpm_Image)
+
+        # self.showFullScreen()
 
     def mousePressEvent(self, mouseevent: QMouseEvent):
         super().mouseMoveEvent(mouseevent)
