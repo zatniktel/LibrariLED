@@ -49,5 +49,8 @@ class ColorPicker(QLabel):
             if s < 1.0:
                 self.qc_Color.setHsvF(h, s, v, 1.0)
 
-            QMessageBox.warning(self, "Color", "Value(" + str(self.qc_Color.toRgb().red()) + ", " + str(self.qc_Color.toRgb().green()) + ", " + str(self.qc_Color.toRgb().blue()) + ")")
+            # Message box used for the debug of the color picker
+            # QMessageBox.warning(self, "Color", "Value(" + str(self.qc_Color.toRgb().red()) + ", " + str(self.qc_Color.toRgb().green()) + ", " + str(self.qc_Color.toRgb().blue()) + ")")
 
+    def get_color(self):
+        return  self.qc_Color
