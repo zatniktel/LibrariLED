@@ -41,11 +41,11 @@ class DialogColorPicker(QDialog):
         # Update the Color of the LED
         i = self.zone.get_offset1()
         for i in range(self.zone.get_ledlength()):
-            self.pixels[i]
+            self.pixels[i] = (color.red(), color.green(), color.blue())
 
         i = self.zone.get_offset2()
         for i in range(self.zone.get_ledlength()):
-            self.pixels[i]
+            self.pixels[i] = (color.red(), color.green(), color.blue())
 
     @Slot(int)
     def showFullScreen(self, dummy):
