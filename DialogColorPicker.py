@@ -5,6 +5,8 @@ from PySide2.QtGui import QMouseEvent
 from ColorPicker import ColorPicker
 from ZoneWidget import Zone
 
+import board
+import neopixel
 
 class DialogColorPicker(QDialog):
 
@@ -17,7 +19,7 @@ class DialogColorPicker(QDialog):
 
         self.zone = Zone(0, 1, 0)
 
-        self.zone.get_offset1()
+        self.pixels = neopixel.NeoPixel(board.D18, 150)
 
         # Construct the interface
         self.qvbl_MainLayout.addWidget(self.cp_ColorPicker)
@@ -35,6 +37,15 @@ class DialogColorPicker(QDialog):
         style = "Background-color: " + color.name()
         self.qpb_Validate.setStyleSheet(style)
         self.zone.setStyleSheet(style)
+
+        # Update the Color of the LED
+        i = self.zone.get_offset1()
+        for i in range(self.zone.get_ledlength()):
+            self.pixels[i]
+
+        i = self.zone.get_offset2()
+        for i in range(self.zone.get_ledlength()):
+            self.pixels[i]
 
     @Slot(int)
     def showFullScreen(self, dummy):
