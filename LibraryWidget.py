@@ -2,6 +2,8 @@
 
 from PySide2.QtWidgets import QWidget, QGridLayout, QPushButton
 from ZoneWidget import Zone
+from DialogColorPicker import DialogColorPicker
+
 
 class Library(QWidget):
 
@@ -11,6 +13,7 @@ class Library(QWidget):
         self.Zones2 = []
         self.MainLayout = QGridLayout()
         self.setLayout(self.MainLayout)
+        self.DialogColorPicker = DialogColorPicker()
 
         # Create a list of Dictionnary to manage the Library manually
         zoneconf1 = []
@@ -28,6 +31,9 @@ class Library(QWidget):
         zoneconf2.append({"offset1": 100, "lengthled": 10})
         zoneconf2.append({"offset1": 110, "lengthled": 10})
 
+        # Create the specific push button for each Zone of the Library
+
+
         offset2 = 0
 
         for zone in zoneconf1:
@@ -38,6 +44,7 @@ class Library(QWidget):
         for zone in zoneconf1:
             self.Zones1.append(Zone(zone["offset1"], zone["lengthled"], offset2))
             self.Zones1[-1].setStyleSheet("QPushButton {background-color:black}")
+            self.Zones1[-1].clickeddata.connect(self.DialogColorPicker.showFullScreen)
 
         offset2 = 0
 
@@ -49,7 +56,9 @@ class Library(QWidget):
         for zone in zoneconf2:
             self.Zones2.append(Zone(zone["offset1"], zone["lengthled"], offset2))
             self.Zones2[-1].setStyleSheet("QPushButton {background-color:black}")
+            self.Zones2[-1].clickeddata.connect(self.DialogColorPicker.showFullScreen)
 
+        # Create the interface
         i = 0
         for zone in self.Zones1:
             self.MainLayout.addWidget(zone, i, 1)
