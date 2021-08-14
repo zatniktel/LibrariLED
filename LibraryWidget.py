@@ -19,17 +19,17 @@ class Library(QWidget):
         zoneconf1 = []
         zoneconf2 = []
 
-        zoneconf1.append({"pin": 21, "offset1": 0, "lengthled": 20})
-        zoneconf1.append({"pin": 21, "offset1": 20, "lengthled": 10})
-        zoneconf1.append({"pin": 21, "offset1": 30, "lengthled": 10})
-        zoneconf1.append({"pin": 21, "offset1": 40, "lengthled": 10})
-        zoneconf1.append({"pin": 21, "offset1": 50, "lengthled": 10})
+        zoneconf1.append({"pin": 12, "offset1": 0, "lengthled": 20})
+        zoneconf1.append({"pin": 12, "offset1": 20, "lengthled": 10})
+        zoneconf1.append({"pin": 12, "offset1": 30, "lengthled": 10})
+        zoneconf1.append({"pin": 12, "offset1": 40, "lengthled": 10})
+        zoneconf1.append({"pin": 12, "offset1": 50, "lengthled": 10})
 
-        zoneconf2.append({"pin": 12, "offset1": 110, "lengthled": 20})
-        zoneconf2.append({"pin": 12, "offset1": 130, "lengthled": 10})
-        zoneconf2.append({"pin": 12, "offset1": 140, "lengthled": 10})
-        zoneconf2.append({"pin": 12, "offset1": 150, "lengthled": 10})
-        zoneconf2.append({"pin": 12, "offset1": 160, "lengthled": 10})
+        zoneconf2.append({"pin": 21, "offset1": 0, "lengthled": 20})
+        zoneconf2.append({"pin": 21, "offset1": 20, "lengthled": 10})
+        zoneconf2.append({"pin": 21, "offset1": 30, "lengthled": 10})
+        zoneconf2.append({"pin": 21, "offset1": 40, "lengthled": 10})
+        zoneconf2.append({"pin": 21, "offset1": 50, "lengthled": 10})
 
         # Create the specific push button for each Zone of the Library
 
@@ -63,7 +63,7 @@ class Library(QWidget):
             offset2 = offset2 + zone["lengthled"]
 
         for zone in zoneconf2:
-            self.Zones2.append(Zone(zone["pin"], ["offset1"], zone["lengthled"], offset2))
+            self.Zones2.append(Zone(zone["pin"], zone["offset1"], zone["lengthled"], offset2))
             self.Zones2[-1].setStyleSheet("QPushButton {background-color:black}")
             self.Zones2[-1].clickeddata.connect(self.DialogColorPicker.showFullScreen)
 
