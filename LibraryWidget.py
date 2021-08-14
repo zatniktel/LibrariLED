@@ -19,11 +19,11 @@ class Library(QWidget):
         zoneconf1 = []
         zoneconf2 = []
 
-        zoneconf1.append({"pin": 21, "offset1": 0, "lengthled": 20})
-        zoneconf1.append({"pin": 21, "offset1": 20, "lengthled": 10})
-        zoneconf1.append({"pin": 21, "offset1": 30, "lengthled": 10})
-        zoneconf1.append({"pin": 21, "offset1": 40, "lengthled": 10})
-        zoneconf1.append({"pin": 21, "offset1": 50, "lengthled": 10})
+        zoneconf1.append({"pin": 21, "offset1": 0, "lengthled": 11})
+        zoneconf1.append({"pin": 21, "offset1": 12, "lengthled": 7})
+        zoneconf1.append({"pin": 21, "offset1": 19, "lengthled": 10})
+        zoneconf1.append({"pin": 21, "offset1": 29, "lengthled": 9})
+        zoneconf1.append({"pin": 21, "offset1": 38, "lengthled": 16})
 
         zoneconf2.append({"pin": 12, "offset1": 110, "lengthled": 20})
         zoneconf2.append({"pin": 12, "offset1": 130, "lengthled": 10})
