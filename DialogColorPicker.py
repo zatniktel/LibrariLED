@@ -40,7 +40,7 @@ class DialogColorPicker(QDialog):
         self.zone.setStyleSheet(style)
 
         # Update the Color of the LED
-        if(self.zone.get_pin() = 21)
+        if self.zone.get_pin() == 21:
             self.pixels = neopixel.NeoPixel(board.D21, 150)
         else:
             self.pixels = neopixel.NeoPixel(board.D12, 150)
