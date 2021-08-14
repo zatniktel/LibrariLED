@@ -7,9 +7,8 @@ class Zone(QPushButton):
 
     clickeddata = Signal(int)
 
-    def __init__(self, pin, offset1, ledlength, offset2=-1):
+    def __init__(self, offset1, ledlength, offset2=-1):
         super().__init__()
-        self.pin = pin
         self.offset1 = offset1
         self.offset2 = offset2
         self.ledlength = ledlength
