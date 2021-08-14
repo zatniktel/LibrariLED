@@ -2,8 +2,8 @@
 
 # Press Maj+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-from PySide2.QtWidgets import QMessageBox, QLabel
-from PySide2.QtGui import QPainter, QColor, QMouseEvent, QPixmap, QImage
+from PySide2.QtWidgets import QLabel
+from PySide2.QtGui import QColor, QMouseEvent, QPixmap, QImage
 from PySide2.QtCore import Qt
 import numpy as np
 
