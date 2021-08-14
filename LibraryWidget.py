@@ -39,11 +39,14 @@ class Library(QWidget):
         for zone in zoneconf1:
             offset2 = offset2 + zone["lengthled"]
 
+        i = 1
+
         for zone in zoneconf1:
             self.Zones1.append(Zone(zone["offset1"], zone["lengthled"], 0))
             self.Zones1[-1].setStyleSheet("QPushButton {background-color:black}")
             self.Zones1[-1].clickeddata.connect(self.DialogColorPicker.showFullScreen)
             self.MainLayout.addWidget(self.Zones1[-1], i, 1)
+            i = i + 1
 
         zoneconf1.reverse()
 
@@ -59,11 +62,14 @@ class Library(QWidget):
         for zone in zoneconf2:
             offset2 = offset2 + zone["lengthled"]
 
+        i = 1
+
         for zone in zoneconf2:
             self.Zones1.append(Zone(zone["offset1"], zone["lengthled"], 0))
             self.Zones1[-1].setStyleSheet("QPushButton {background-color:black}")
             self.Zones1[-1].clickeddata.connect(self.DialogColorPicker.showFullScreen)
             self.MainLayout.addWidget(self.Zones1[-1], i, 2)
+            i = i + 1
 
         zoneconf1.reverse()
 
