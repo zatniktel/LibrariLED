@@ -20,7 +20,7 @@ class DialogColorPicker(QDialog):
         self.zone = Zone(0, 1, 0)
 
         # Create the neopixel strip object
-        self.pixels = neopixel.NeoPixel(board.D12, 150)
+        self.pixels = neopixel.NeoPixel(board.D12, 150,auto_write=False)
 
         # Construct the interface
         self.qvbl_MainLayout.addWidget(self.cp_ColorPicker)
@@ -49,6 +49,8 @@ class DialogColorPicker(QDialog):
         print("offset2 = ", self.zone.get_offset2())
         for i in range(self.zone.get_offset2(), self.zone.get_ledlength() + self.zone.get_offset2()):
              self.pixels[i] = (color.red(), color.green(), color.blue())
+
+        self.pixels.show()
 
     @Slot(int)
     def showFullScreen(self, dummy):
